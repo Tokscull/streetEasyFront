@@ -16,6 +16,7 @@ export class RegistrationComponent implements OnInit {
   }
 
   open(content) {
+    this.authChange.emit(false);
     this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
       console.log(`Closed with: ${result}`);
     }, (reason) => {
@@ -25,13 +26,17 @@ export class RegistrationComponent implements OnInit {
 
   private getDismissReason(reason: any): string {
     if (reason === ModalDismissReasons.ESC) {
-      this.authChange.emit(true);
       return 'by pressing ESC';
     } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
-      this.authChange.emit(true);
       return 'by clicking on a backdrop';
     } else {
       return  `with: ${reason}`;
+    }
+  }
+
+  close($event: boolean) {
+    if (event) {
+      this.modalService.dismissAll();
     }
   }
 }

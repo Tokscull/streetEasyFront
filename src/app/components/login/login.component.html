@@ -48,4 +48,6 @@
       </div>
 </ng-template>
 
-<button class="btn btn-outline-success" (click)="open(content)">Войти</button>
+<button *ngIf="isButton" class="btn btn-outline-success" (click)="open(content)">Войти</button>
+
+<a *ngIf="!isButton" (click)="open(content)">Sign In</a>

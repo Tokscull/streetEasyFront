@@ -42,6 +42,9 @@
     </div>
 
     <div class="card-footer">
+      <div class="d-flex justify-content-center links">
+        Have an account?<a href="#"><app-login [isButton]="false" (authChange)="close($event) "></app-login></a>
+      </div>
       <div class="d-flex justify-content-center">
         <a href="#">Forgot your password?</a>
       </div>

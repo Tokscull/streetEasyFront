@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {ModalDismissReasons, NgbModal} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
@@ -8,14 +8,16 @@ import {ModalDismissReasons, NgbModal} from '@ng-bootstrap/ng-bootstrap';
 })
 export class LoginComponent implements OnInit {
 
+  @Output() authChange = new EventEmitter();
+  @Input() isButton: boolean;
 
   constructor(private modalService: NgbModal) { }
 
   ngOnInit() {
-
   }
 
   open(content) {
+    this.authChange.emit(true);
     this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
       console.log(`Closed with: ${result}`);
     }, (reason) => {
@@ -35,7 +37,7 @@ export class LoginComponent implements OnInit {
 
   close($event: boolean) {
     if (event) {
-    this.modalService.dismissAll();
+      this.modalService.dismissAll();
     }
   }
 }

@@ -8,6 +8,7 @@ import {RouterModule, Routes} from '@angular/router';
 import { LoginComponent } from './components/login/login.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RegistrationComponent } from './components/registration/registration.component';
+import {FormsModule} from '@angular/forms';
 
 const appRouter: Routes = [
   {path: '', component: RentComponent},
@@ -26,6 +27,7 @@ const appRouter: Routes = [
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     RouterModule.forRoot(appRouter),
     NgbModule
   ],
