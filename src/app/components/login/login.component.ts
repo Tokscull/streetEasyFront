@@ -1,5 +1,8 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {ModalDismissReasons, NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import {User} from '../../models/User';
+import {HttpService} from '../../services/http/http.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -11,9 +14,14 @@ export class LoginComponent implements OnInit {
   @Output() authChange = new EventEmitter();
   @Input() isButton: boolean;
 
-  constructor(private modalService: NgbModal) { }
+  user: User;
+  errorMessage: string;
+
+  constructor(private modalService: NgbModal, private httpService: HttpService, private router: Router) { }
 
   ngOnInit() {
+    this.user = new User();
+    this.errorMessage = null;
   }
 
   open(content) {
@@ -39,5 +47,17 @@ export class LoginComponent implements OnInit {
     if (event) {
       this.modalService.dismissAll();
     }
+  }
+
+  logIn() {
+    this.httpService.logIn(this.user.username, this.user.password)
+      .subscribe(value => {
+          console.log(value);
+          this.modalService.dismissAll();
+          window.location.reload();
+        },
+        error => {
+          this.errorMessage = 'error :  Username or password is incorrect';
+        });
   }
 }

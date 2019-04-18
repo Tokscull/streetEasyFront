@@ -9,12 +9,18 @@ import { LoginComponent } from './components/login/login.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RegistrationComponent } from './components/registration/registration.component';
 import {FormsModule} from '@angular/forms';
+import {HttpService} from './services/http/http.service';
+import {HttpClientModule} from '@angular/common/http';
 
 const appRouter: Routes = [
   {path: '', component: RentComponent},
+  {path: 'rent', component: RentComponent},
   {path: 'sale', component: SaleComponent},
   {path: 'login', component: LoginComponent},
-  {path: 'registration', component: RegistrationComponent}
+  {path: 'registration', component: RegistrationComponent},
+
+  // otherwise redirect to home
+  { path: '**', redirectTo: '' }
 ];
 
 @NgModule({
@@ -29,9 +35,10 @@ const appRouter: Routes = [
     BrowserModule,
     FormsModule,
     RouterModule.forRoot(appRouter),
-    NgbModule
+    NgbModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [HttpService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

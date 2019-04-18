@@ -9,62 +9,13 @@
   <p>
     rent works!
   </p>
-  <p>
-    rent works!
-  </p>
-  <p>
-    rent works!
-  </p>
-  <p>
-    rent works!
-  </p>
-  <p>
-    rent works!
-  </p>
-  <p>
-    rent works!
-  </p>
-  <p>
-    rent works!
-  </p>
-  <p>
-    rent works!
-  </p>
-  <p>
-    rent works!
-  </p>
-  <p>
-    rent works!
-  </p>
-  <p>
-    rent works!
-  </p>
-  <p>
-    rent works!
-  </p>
-  <p>
-    rent works!
-  </p>
-  <p>
-    rent works!
-  </p>
-  <p>
-    rent works!
-  </p>
-  <p>
-    rent works!
-  </p>
-  <p>
-    rent works!
-  </p>
-  <p>
-    rent works!
-  </p>
-  <p>
-    rent works!
-  </p>
-  <p>
-    rent works!
-  </p>
+  <div *ngIf="currentUser">
+     <h1>Hello,  {{ currentUser.fullName}}</h1>
+    <button (click)="logOut()">LogOut</button>
+    <br>
+    <br>
+    <button (click)="getCurrentUser()">getCurrentUser</button>
+    <br>
+  </div>
 </div>
 
