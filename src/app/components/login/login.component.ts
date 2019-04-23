@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit {
   user: User;
   errorMessage: string;
 
-  constructor(private modalService: NgbModal, private httpService: HttpService, private router: Router) { }
+  constructor(private modalService: NgbModal, private httpService: HttpService) { }
 
   ngOnInit() {
     this.user = new User();
@@ -57,7 +57,7 @@ export class LoginComponent implements OnInit {
           window.location.reload();
         },
         error => {
-          this.errorMessage = 'error :  Username or password is incorrect';
+          this.errorMessage = 'Ошибка :  Логин или пароль не корректны';
         });
   }
 }

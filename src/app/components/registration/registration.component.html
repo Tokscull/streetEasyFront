@@ -4,7 +4,7 @@
   <div class="card">
 
     <div class="card-header">
-      <h3>Sign Up</h3>
+      <h3>Регистрация</h3>
       <div class="d-flex justify-content-end social_icon">
         <span><i class="fab fa-facebook-square"></i></span>
         <span><i class="fab fa-google-plus-square"></i></span>
@@ -13,44 +13,39 @@
     </div>
 
     <div class="card-body">
-      <form>
+      <form >
+        <div class="alert alert-danger" role="alert" *ngIf="errorMessage">{{errorMessage}}</div>
         <div class="input-group form-group">
           <div class="input-group-prepend">
             <span class="input-group-text"><i class="fas fa-user"></i></span>
           </div>
-          <input required type="text" class="form-control" placeholder="username">
+          <input type="text" class="form-control" placeholder="Логин" [(ngModel)]="user.username" name="username">
         </div>
         <div class="input-group form-group">
           <div class="input-group-prepend">
             <span class="input-group-text"><i class="fas fa-key"></i></span>
           </div>
-          <input required type="password" class="form-control" placeholder="password">
+          <input required type="password" class="form-control" placeholder="Пароль" [(ngModel)]="user.password" name="password">
         </div>
         <div class="input-group form-group">
           <div class="input-group-prepend">
             <span class="input-group-text"><i class="fas fa-key"></i></span>
           </div>
-          <input required type="password" class="form-control" placeholder="repeat password">
-        </div>
-        <div class="row align-items-center remember">
-          <input type="checkbox">Remember Me
+          <input required type="password" class="form-control" placeholder="Повторите пароль">
         </div>
         <div class="form-group">
-          <input type="submit" value="Registration" class="btn float-right login_btn">
+          <input type="submit" value="Регистрация" class="btn float-right login_btn" (click)="register()">
         </div>
       </form>
     </div>
 
     <div class="card-footer">
       <div class="d-flex justify-content-center links">
-        Have an account?<a href="#"><app-login [isButton]="false" (authChange)="close($event) "></app-login></a>
-      </div>
-      <div class="d-flex justify-content-center">
-        <a href="#">Forgot your password?</a>
+        Уже есть аккаунт?<a href="#"><app-login [isButton]="false" (authChange)="close($event) "></app-login></a>
       </div>
     </div>
 
   </div>
 </ng-template>
 
-<a (click)="open(content)">Sign Up</a>
+<a (click)="open(content)">Зарегистрироваться</a>

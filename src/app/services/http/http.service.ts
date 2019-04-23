@@ -3,6 +3,7 @@ import {map} from 'rxjs/operators';
 import {AppComponent} from '../../app.component';
 import {Observable} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
+import {User} from '../../models/User';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,7 @@ export class HttpService {
   }
 
 
-   logIn(username: string, password: string) {
+  public logIn(username: string, password: string): Observable<any> {
     return this.http.get(AppComponent.API_URL + '/account/login', {
       headers: {
         Accept: 'application/json',
@@ -32,5 +33,9 @@ export class HttpService {
 
   public getCurrentUser(): Observable<any> {
     return this.http.get(AppComponent.API_URL + '/account/currentUser');
+  }
+
+  public createAccount(user: User): Observable<any> {
+    return this.http.post(AppComponent.API_URL + '/account/register', user);
   }
 }

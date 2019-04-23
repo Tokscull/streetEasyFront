@@ -1,5 +1,7 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {ModalDismissReasons, NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import {User} from '../../models/User';
+import {HttpService} from '../../services/http/http.service';
 
 @Component({
   selector: 'app-registration',
@@ -10,9 +12,14 @@ export class RegistrationComponent implements OnInit {
 
   @Output() authChange = new EventEmitter();
 
-  constructor(private modalService: NgbModal) { }
+  user: User;
+  errorMessage: string;
+
+  constructor(private modalService: NgbModal, private httpService: HttpService) { }
 
   ngOnInit() {
+    this.user = new User();
+    this.errorMessage = null;
   }
 
   open(content) {
@@ -38,5 +45,17 @@ export class RegistrationComponent implements OnInit {
     if (event) {
       this.modalService.dismissAll();
     }
+  }
+
+  register() {
+    this.httpService.createAccount(this.user)
+      .subscribe(value => {
+        console.log(value);
+        this.modalService.dismissAll();
+        window.location.reload();
+      }, err => {
+        console.log(err);
+        this.errorMessage = 'Ошибка :  Пользователь с таким логином уже зарегистрировван';
+      });
   }
 }

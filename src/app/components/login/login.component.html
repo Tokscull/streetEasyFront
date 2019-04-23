@@ -4,7 +4,7 @@
       <div class="card">
 
         <div class="card-header">
-          <h3>Sign In</h3>
+          <h3>Авторизация</h3>
           <div class="d-flex justify-content-end social_icon">
             <span><i class="fab fa-facebook-square"></i></span>
             <span><i class="fab fa-google-plus-square"></i></span>
@@ -13,35 +13,35 @@
         </div>
 
         <div class="card-body">
-          <form>
+          <form >
             <div class="input-group form-group">
               <div class="input-group-prepend">
                 <span class="input-group-text"><i class="fas fa-user"></i></span>
               </div>
-              <input required type="text" class="form-control" placeholder="username" [(ngModel)]="user.username" name="username">
-
+              <input required type="text" class="form-control" placeholder="Логин" [(ngModel)]="user.username" name="username">
             </div>
             <div class="input-group form-group">
               <div class="input-group-prepend">
                 <span class="input-group-text"><i class="fas fa-key"></i></span>
               </div>
-              <input  required type="password" class="form-control" placeholder="password" [(ngModel)]="user.password" name="password">
+              <input  required type="password" class="form-control" placeholder="Пароль" [(ngModel)]="user.password" name="password">
             </div>
+            <div class="alert alert-danger" role="alert" *ngIf="errorMessage">{{errorMessage}}</div>
             <div class="row align-items-center remember">
-              <input type="checkbox">Remember Me
+              <input type="checkbox">Запомнить меня
             </div>
             <div class="form-group">
-              <input type="submit" value="Login" class="btn float-right login_btn" (click)="logIn()">
+              <input type="submit" value="Войти" class="btn float-right login_btn" (click)="logIn()">
             </div>
           </form>
         </div>
 
         <div class="card-footer">
           <div class="d-flex justify-content-center links">
-            Don't have an account?<a href="#"><app-registration (authChange)="close($event)"></app-registration></a>
+            Нет аккаунта?<a href="#"><app-registration (authChange)="close($event)"></app-registration></a>
           </div>
           <div class="d-flex justify-content-center">
-            <a href="#">Forgot your password?</a>
+            <a href="#">Забыли пароль?</a>
           </div>
         </div>
 
@@ -50,4 +50,4 @@
 
 <button *ngIf="isButton" class="btn btn-outline-success" (click)="open(content)">Войти</button>
 
-<a *ngIf="!isButton" (click)="open(content)">Sign In</a>
+<a *ngIf="!isButton" (click)="open(content)">Войти</a>
