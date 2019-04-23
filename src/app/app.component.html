@@ -9,8 +9,21 @@
       <li class="nav-item">
         <a class="nav-link px-2">Link</a>
       </li>
-      <li class="nav-item">
+      <li *ngIf="!currentUser" class="nav-item">
         <app-login [isButton]="true"></app-login>
+      </li>
+      <li *ngIf="currentUser" >
+        <div class="row">
+          <div class="col">
+            <div ngbDropdown class="d-inline-block">
+              <a id="dropdownBasic1" ngbDropdownToggle><img src="assets/profile.png"/></a>
+              <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                <button ngbDropdownItem>Мой аккаунт</button>
+                <button (click)="logOut()" ngbDropdownItem>Выйти</button>
+              </div>
+            </div>
+          </div>
+        </div>
       </li>
     </ul>
   </div>
