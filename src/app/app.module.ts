@@ -11,6 +11,9 @@ import { RegistrationComponent } from './components/registration/registration.co
 import {FormsModule} from '@angular/forms';
 import {HttpService} from './services/http/http.service';
 import {HttpClientModule} from '@angular/common/http';
+import {AgmCoreModule} from '@agm/core';
+import { MapsComponent } from './components/maps/maps.component';
+import {MapsService} from './services/maps/maps.service';
 
 const appRouter: Routes = [
   {path: '', component: RentComponent},
@@ -30,15 +33,19 @@ const appRouter: Routes = [
     RentComponent,
     LoginComponent,
     RegistrationComponent,
+    MapsComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     RouterModule.forRoot(appRouter),
     NgbModule,
-    HttpClientModule
+    HttpClientModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyB_shxXXxlrijwGTfBLXrSU3m0oMtzTRDg'
+    })
   ],
-  providers: [HttpService],
+  providers: [HttpService, MapsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

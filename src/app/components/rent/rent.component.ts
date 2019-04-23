@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {User} from '../../models/User';
+import {Apartament} from '../../models/Apartament';
+import {HttpService} from '../../services/http/http.service';
 
 @Component({
   selector: 'app-rent',
@@ -8,11 +9,18 @@ import {User} from '../../models/User';
 })
 export class RentComponent implements OnInit {
   title = 'Rent';
-  currentUser: User;
+  apartments: Apartament[];
 
-  constructor() {
+  constructor(private httpService: HttpService) {
   }
 
   ngOnInit() {
+    this.httpService.getAllApartments()
+      .subscribe(value => {
+          this.apartments = value;
+        },
+        error => {
+          console.log(error);
+        });
   }
 }

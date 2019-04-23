@@ -3,11 +3,23 @@
   <br>
   <br>
   <br>
-  <br>
-  <br>
 
-  <p>
-    rent works!
-  </p>
+
+  <table class="table" >
+    <thead>
+    <tr>
+      <th style="width: 40%">
+        <ul class="list-group list-group-flush">
+          <li *ngFor="let apartment of apartments" class="list-group-item">
+            {{apartment.description}}
+          </li>
+        </ul>
+      </th>
+      <th style="width: 60%">
+        <app-maps></app-maps>
+      </th>
+    </tr>
+    </thead>
+  </table>
 </div>
 

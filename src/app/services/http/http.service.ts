@@ -38,4 +38,8 @@ export class HttpService {
   public createAccount(user: User): Observable<any> {
     return this.http.post(AppComponent.API_URL + '/account/register', user);
   }
+
+  public getAllApartments(): Observable<any> {
+    return this.http.get(AppComponent.API_URL + '/apartments/getAllApartments');
+  }
 }
