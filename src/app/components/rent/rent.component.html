@@ -1,25 +1,15 @@
-<div class="container">
-  <br>
-  <br>
-  <br>
-  <br>
+<div class="container rent">
 
+  <div class="apsList">
+   <app-apartments></app-apartments>
+  </div>
 
-  <table class="table" >
-    <thead>
-    <tr>
-      <th style="width: 40%">
-        <ul class="list-group list-group-flush">
-          <li *ngFor="let apartment of apartments" class="list-group-item">
-            {{apartment.description}}
-          </li>
-        </ul>
-      </th>
-      <th style="width: 60%">
-        <app-maps></app-maps>
-      </th>
-    </tr>
-    </thead>
-  </table>
+  <div class="map">
+    <app-maps></app-maps>
+  </div>
+
 </div>
+
+
+
 

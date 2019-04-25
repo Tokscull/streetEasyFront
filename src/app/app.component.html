@@ -34,10 +34,11 @@
 
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a class="nav-link" routerLink="/">Аренда</a>
+        <a class="nav-link" routerLink="/" routerLinkActive="active"
+           [routerLinkActiveOptions]="{exact:true}">Аренда</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/sale">Продажа</a>
+        <a class="nav-link" routerLink="/sale" routerLinkActive="active">Продажа</a>
       </li>
     </ul>
   </div>

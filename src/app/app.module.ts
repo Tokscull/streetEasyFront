@@ -13,7 +13,8 @@ import {HttpService} from './services/http/http.service';
 import {HttpClientModule} from '@angular/common/http';
 import {AgmCoreModule} from '@agm/core';
 import { MapsComponent } from './components/maps/maps.component';
-import {MapsService} from './services/maps/maps.service';
+import {CarouselModule} from 'ngx-bootstrap';
+import { ApartmentsComponent } from './components/apartments/apartments.component';
 
 const appRouter: Routes = [
   {path: '', component: RentComponent},
@@ -34,6 +35,7 @@ const appRouter: Routes = [
     LoginComponent,
     RegistrationComponent,
     MapsComponent,
+    ApartmentsComponent,
   ],
   imports: [
     BrowserModule,
@@ -43,9 +45,10 @@ const appRouter: Routes = [
     HttpClientModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyB_shxXXxlrijwGTfBLXrSU3m0oMtzTRDg'
-    })
+    }),
+    CarouselModule
   ],
-  providers: [HttpService, MapsService],
+  providers: [HttpService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

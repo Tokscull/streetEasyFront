@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {MapsService} from '../../services/maps/maps.service';
+import {ApsLocation} from '../../models/apsLocation';
 
 @Component({
   selector: 'app-maps',
@@ -8,24 +8,45 @@ import {MapsService} from '../../services/maps/maps.service';
 })
 export class MapsComponent implements OnInit {
 
-  lat: string;
-  lng: string;
+  lat: number;
+  lng: number;
+  zoom: number;
   title: string;
 
-  location: Location;
-
-  constructor(private map: MapsService) { }
+  constructor() { }
 
   ngOnInit() {
-    this.lat = '';
-    this.lng = '';
-
-    this.map.getLocation().subscribe(data => {
-      console.log(data);
-      this.lat = data.latitude;
-      this.lng = data.longitude;
-      this.title = data.country_name;
-    });
+    // initial center position for the map
+    this.lat = 53.904541;
+    this.lng = 27.561523;
+    // google maps zoom level
+    this.zoom = 11;
   }
 
+  clickedMarker(label: string, index: number) {
+    console.log(`clicked the marker: ${label || index}`);
+  }
+
+
+
+  markers: ApsLocation[] = [
+    {
+      lat: 53.906523,
+      lng: 27.524216,
+      label: 'A',
+      draggable: false
+    },
+    {
+      lat: 53.883176,
+      lng: 27.601846,
+      label: 'B',
+      draggable: false
+    },
+    {
+      lat: 53.904621,
+      lng: 27.548998,
+      label: 'C',
+      draggable: false
+    }
+  ];
 }
