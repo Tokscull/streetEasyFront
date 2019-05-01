@@ -1,14 +1,10 @@
 <nav class="navbar fixed-top navbar-expand-md flex-nowrap navbar-new-top">
-  <div class="container">
+  <div class="container ">
     <a href="/" class="navbar-brand"><img src="assets/favicon.png"/>StreetEasy</a>
-    <ul class="nav navbar-nav mr-auto"></ul>
+
+
+   <ul class="nav navbar-nav mr-auto"></ul>
     <ul class="navbar-nav flex-row">
-      <li class="nav-item">
-        <a class="nav-link px-2">Link</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link px-2">Link</a>
-      </li>
       <li *ngIf="!currentUser" class="nav-item">
         <app-login [isButton]="true"></app-login>
       </li>
@@ -18,7 +14,7 @@
             <div ngbDropdown class="d-inline-block">
               <a id="dropdownBasic1" ngbDropdownToggle><img src="assets/profile.png"/></a>
               <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-                <button ngbDropdownItem>Мой аккаунт</button>
+                <button ngbDropdownItem routerLink="/account">Мой аккаунт</button>
                 <button (click)="logOut()" ngbDropdownItem>Выйти</button>
               </div>
             </div>
@@ -41,7 +37,16 @@
         <a class="nav-link" routerLink="/sale" routerLinkActive="active">Продажа</a>
       </li>
     </ul>
+
+    <ul class="nav navbar-nav mr-auto"></ul>
+    <ul class="navbar-nav flex-row">
+      <li class="nav-item">
+        <a class="nav-link px-2" routerLink="/add" routerLinkActive="active">Разместить&nbsp;объявление</a>
+      </li>
+    </ul>
+
   </div>
 </nav>
 
 <router-outlet></router-outlet>
+

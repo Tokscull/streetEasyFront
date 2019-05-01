@@ -1,18 +1,16 @@
 import { Injectable } from '@angular/core';
-import {map} from 'rxjs/operators';
-import {AppComponent} from '../../app.component';
 import {Observable} from 'rxjs';
-import {HttpClient} from '@angular/common/http';
+import {AppComponent} from '../../app.component';
+import {map} from 'rxjs/operators';
 import {User} from '../../models/User';
+import {HttpClient} from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
-export class HttpService {
+export class UserService {
 
-  constructor(private http: HttpClient) {
-  }
-
+  constructor(private http: HttpClient) { }
 
   public logIn(username: string, password: string): Observable<any> {
     return this.http.get(AppComponent.API_URL + '/account/login', {
@@ -31,15 +29,11 @@ export class HttpService {
     }));
   }
 
-  public getCurrentUser(): Observable<any> {
-    return this.http.get(AppComponent.API_URL + '/account/currentUser');
-  }
-
   public createAccount(user: User): Observable<any> {
     return this.http.post(AppComponent.API_URL + '/account/register', user);
   }
 
-  public getAllApartments(): Observable<any> {
-    return this.http.get(AppComponent.API_URL + '/apartments/getAllApartments');
+  public updateUser(user: User): Observable<any> {
+    return this.http.post(AppComponent.API_URL + '/account/updateUser', user);
   }
 }

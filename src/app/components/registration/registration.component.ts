@@ -1,7 +1,7 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {ModalDismissReasons, NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {User} from '../../models/User';
-import {HttpService} from '../../services/http/http.service';
+import {UserService} from '../../services/user/user.service';
 
 @Component({
   selector: 'app-registration',
@@ -15,7 +15,7 @@ export class RegistrationComponent implements OnInit {
   user: User;
   errorMessage: string;
 
-  constructor(private modalService: NgbModal, private httpService: HttpService) { }
+  constructor(private modalService: NgbModal, private userService: UserService) { }
 
   ngOnInit() {
     this.user = new User();
@@ -48,7 +48,7 @@ export class RegistrationComponent implements OnInit {
   }
 
   register() {
-    this.httpService.createAccount(this.user)
+    this.userService.createAccount(this.user)
       .subscribe(value => {
         console.log(value);
         this.modalService.dismissAll();

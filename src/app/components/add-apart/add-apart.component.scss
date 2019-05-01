@@ -1,0 +1,43 @@
+.add {
+  margin-top: 100px;
+  height: 100%;
+  width: 100%;
+}
+
+.rentBtn {
+  display: inline-block;
+  margin-right: 15px;
+  margin-left: 15px;
+}
+
+.sellBtn {
+  display: inline-block;
+  margin-right: 15px;
+  margin-left: 15px;
+}
+
+.updateBtn {
+  display: inline-block;
+  width: 50%;
+}
+
+.clearBtn {
+  display: inline-block;
+  width: 50%;
+}
+
+.clearBtn > .btn,  .updateBtn > .btn{
+  width: 60%;
+}
+
+.address-col {
+  display: inline-block;
+  width: 50%;
+  vertical-align: top;
+}
+
+.map {
+  display: inline-block;
+  width: 50%;
+  height: 400px;
+}

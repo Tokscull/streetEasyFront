@@ -1,0 +1,65 @@
+.container{
+  margin-top: 100px;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+.myBtn {
+  text-align: center;
+  margin-bottom: 30px;
+}
+.myAps{
+  display: inline-block;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.myUser{
+  display: inline-block;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.apsSale {
+  width: 50%;
+  display: inline-block;
+  vertical-align: top;
+}
+.apsRent{
+  width: 50%;
+  display: inline-block;
+  vertical-align: top;
+}
+.apsListTitle {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.apsListRent {
+  display: inline-block;
+  border-right: thick solid #77828c;
+}
+.apsListSale {
+  display: inline-block;
+}
+
+.user{
+  margin-top: 50px;
+  margin-bottom: 20px;
+  margin-left: 25%;
+  width: 50%;
+}
+
+.updateBtn {
+  display: inline-block;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.clearBtn {
+  display: inline-block;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+

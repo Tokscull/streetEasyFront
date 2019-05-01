@@ -1,0 +1,30 @@
+.sale {
+  margin-top: 93px;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.apsList {
+  position: absolute;
+  float: left;
+  width: 50%;
+  height: 650px;
+  overflow-y: scroll;
+}
+
+.map {
+  position: relative;
+  float: right;
+  width: 50%;
+}
+
+.filtr{
+  position: absolute;
+  margin-top: -93px;
+  margin-left: 50%;
+  width: 46%;
+  z-index: 2;
+}
+

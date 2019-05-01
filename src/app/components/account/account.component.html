@@ -1,0 +1,44 @@
+<div class="container">
+  <div class="myBtn">
+    <div class="myAps">
+      <button (click)="showApart()" type="button" class="btn btn-outline-primary">Мои объявления</button>
+    </div>
+    <div class="myUser">
+      <button (click)="showUser()" type="button" class="btn btn-outline-primary">Мои данные</button>
+    </div>
+  </div>
+  <div *ngIf="isShowApartRent" class="apsRent">
+    <div class="apsListTitle">
+      <h3>Объявления об аренде</h3>
+    </div>
+    <div class="apsListRent">
+      <app-apartments [apartments]="apartmentsRent" [type]="'rent'"></app-apartments>
+    </div>
+  </div>
+  <div *ngIf="isShowApartSale" class="apsSale">
+    <div class="apsListTitle">
+      <h3>Объявления о продаже</h3>
+    </div>
+    <div class="apsListSale">
+      <app-apartments [apartments]="apartmentSale" [type]="'sale'"></app-apartments>
+    </div>
+  </div>
+  <div *ngIf="isShowUser" class="user">
+    <input class="form-control" required type="text" placeholder="Фамилия" name="lastName" [(ngModel)]="apartmentsRent[0].user.lastName">
+    <br>
+    <input class="form-control" type="text" placeholder="Имя" name="firstName" [(ngModel)]="apartmentsRent[0].user.firstName">
+    <br>
+    <input class="form-control" type="tel" placeholder="Телефон" name="phone" [(ngModel)]="apartmentsRent[0].user.phone">
+    <br>
+    <input class="form-control" type="email" placeholder="Email" name="email" [(ngModel)]="apartmentsRent[0].user.email">
+    <br>
+    <div class="myBtn">
+    <div class="clearBtn">
+      <button class="btn btn-outline-secondary" (click)="clearPerson()">Сбросить</button>
+    </div>
+    <div class="updateBtn">
+      <button class="btn btn-outline-success" (click)="updatePerson()">Сохранить данные</button>
+    </div>
+    </div>
+  </div>
+</div>

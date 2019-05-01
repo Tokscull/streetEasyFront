@@ -1,0 +1,55 @@
+<div class="container">
+  <div class="title">
+    <h2>Редактирование объявления</h2>
+  </div>
+  <div class="clearBtn">
+    <button (click)="clear()" type="button" class="btn btn-outline-secondary">Отчистить</button>
+  </div>
+  <div class="updateBtn">
+    <button (click)="update()" type="button" class="btn btn-outline-primary">Сохранить</button>
+  </div>
+  <br>
+  <div>
+    <h3>Контактные данные</h3>
+    <div>
+      <input class="form-control" required type="text" placeholder="Фамилия" name="lastName" [(ngModel)]="apartment.user.lastName">
+      <br>
+      <input class="form-control" type="text" placeholder="Имя" name="firstName" [(ngModel)]="apartment.user.firstName">
+      <br>
+      <input class="form-control" type="tel" placeholder="Телефон" name="phone" [(ngModel)]="apartment.user.phone">
+      <br>
+      <input class="form-control" type="email" placeholder="Email" name="email" [(ngModel)]="apartment.user.email">
+      <br>
+    </div>
+  </div>
+  <div>
+    <h3>Основные параметры объекта</h3>
+    <div>
+      <textarea class="form-control" placeholder="Название" name="title" [(ngModel)]="apartment.title"></textarea>
+      <br>
+      <textarea class="form-control" placeholder="Описание" name="description" [(ngModel)]="apartment.description"></textarea>
+      <br>
+      <input class="form-control" required type="number" placeholder="Количество комнат" name="roomCount" [(ngModel)]="apartment.roomCount">
+      <br>
+      <input class="form-control" required type="number" placeholder="Этаж" name="floor" [(ngModel)]="apartment.floor">
+      <br>
+      <input class="form-control" required type="number" placeholder="Всего Этажей" name="maxFloor" [(ngModel)]="apartment.maxFloor">
+      <br>
+      <input class="form-control" required type="number" placeholder="Цена" name="price" [(ngModel)]="apartment.price">
+      <br>
+    </div>
+    <div>
+      <h3>Адрес объекта</h3>
+      <div>
+        <input class="form-control" required type="text" placeholder="Город" name="town" [(ngModel)]="apartment.address.town">
+        <br>
+        <input class="form-control" required type="text" placeholder="Район" name="area" [(ngModel)]="apartment.address.area">
+        <br>
+        <input class="form-control" required type="text" placeholder="Улица" name="street" [(ngModel)]="apartment.address.street">
+        <br>
+        <input class="form-control" required type="text" placeholder="Дом" name="house" [(ngModel)]="apartment.address.house">
+        <br>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,100 @@
+<div class="add container">
+  <app-login hidden></app-login>
+
+  <div *ngIf="!isShowAddress && !isShowApart && !isShowPhoto">
+  <div class="rentBtn">
+    <button (click)="showUserForm('rent')"  class="btn btn-outline-success">Я хочу сдать квартиру</button>
+  </div>
+  <div class="sellBtn">
+    <button (click)="showUserForm('sell')" class="btn btn-outline-success">Я хочу продать квартиру</button>
+  </div>
+  </div>
+
+
+  <div *ngIf="isShowPerson" class="form-group-row">
+    <div class="col-10">
+      <br>
+      <br>
+      <input class="form-control" required type="text" placeholder="Фамилия" name="lastName" [(ngModel)]="user.lastName">
+      <br>
+      <input class="form-control" type="text" placeholder="Имя" name="firstName" [(ngModel)]="user.firstName">
+      <br>
+      <input class="form-control" type="tel" placeholder="Телефон" name="phone" [(ngModel)]="user.phone">
+      <br>
+      <input class="form-control" type="email" placeholder="Email" name="email" [(ngModel)]="user.email">
+      <br>
+      <div class="clearBtn">
+        <button class="btn btn-outline-secondary" (click)="clearPerson()">Сбросить</button>
+      </div>
+      <div class="updateBtn">
+        <button class="btn btn-outline-success" (click)="updatePerson()">Далее</button>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="isShowAddress" class="address">
+    <div class="address-col">
+      <input (change)="addressChangeListener()" class="form-control" required type="text" placeholder="Город" name="town" [(ngModel)]="address.town">
+      <br>
+      <input (change)="addressChangeListener()" class="form-control" required type="text" placeholder="Район" name="area" [(ngModel)]="address.area">
+      <br>
+      <input (change)="addressChangeListener()" class="form-control" required type="text" placeholder="Улица" name="street" [(ngModel)]="address.street">
+      <br>
+      <input (change)="addressChangeListener()" class="form-control" required type="text" placeholder="Дом" name="house" [(ngModel)]="address.house">
+      <br>
+      <div class="clearBtn">
+        <button class="btn btn-outline-secondary" (click)="goToPersonInfo()">Назад</button>
+      </div>
+      <div class="updateBtn">
+        <button class="btn btn-outline-success" (click)="goToApInfo()">Далее</button>
+      </div>
+    </div>
+    <div class="map">
+      <app-maps [markers]="markers"></app-maps>
+    </div>
+    <div>
+      <button class="btn btn-outline-success" (click)="getLocation()">getLocation()</button>
+    </div>
+  </div>
+
+  <div *ngIf="isShowApart" class="apartInfo">
+    <div class="col-10">
+      <textarea class="form-control" placeholder="Название" name="title" [(ngModel)]="apartment.title"></textarea>
+      <br>
+      <textarea class="form-control" placeholder="Описание" name="description" [(ngModel)]="apartment.description"></textarea>
+      <br>
+      <input class="form-control" required type="number" placeholder="Количество комнат" name="roomCount" [(ngModel)]="apartment.roomCount">
+      <br>
+      <input class="form-control" required type="number" placeholder="Этаж" name="floor" [(ngModel)]="apartment.floor">
+      <br>
+      <input class="form-control" required type="number" placeholder="Всего Этажей" name="maxFloor" [(ngModel)]="apartment.maxFloor">
+      <br>
+      <input class="form-control" required type="number" placeholder="Цена" name="price" [(ngModel)]="apartment.price">
+      <br>
+      <div class="clearBtn">
+        <button class="btn btn-outline-secondary" (click)="goToAddress()">Назад</button>
+      </div>
+      <div class="updateBtn">
+        <button class="btn btn-outline-success" (click)="insertApart()">Далее</button>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="isShowPhoto" class="photo">
+    <br>
+    <input type="file" (change)="upload($event.target.files)" />
+    Upload Percent: {{percentDone}}% <br />
+
+    <ng-container *ngIf="uploadSuccess">
+      Upload Successful
+    </ng-container>
+    <br>
+    <div class="clearBtn">
+      <button class="btn btn-outline-secondary" (click)="goToApart()">Назад</button>
+    </div>
+    <div class="updateBtn">
+      <button class="btn btn-outline-success" (click)="addImg()">Завершить</button>
+    </div>
+  </div>
+</div>
+

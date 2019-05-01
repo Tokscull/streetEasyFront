@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="PriceFilter" >
+    <ng5-slider (click)="filter()" [(value)]="minValue" [(highValue)]="maxValue" [options]="options"></ng5-slider>
+  </div>
+
+  <div class="RoomFilter">
+    <div class="custom-controls-stacked d-block my-3">
+      <label class="custom-control material-checkbox checkInl">
+        <input (change)="filter()"type="checkbox" class="material-control-input" [(ngModel)]="isRoomCount1">
+        <span class="material-control-indicator"></span>
+        <span class="material-control-description">1</span>
+      </label>
+      <label class="custom-control material-checkbox checkInl">
+        <input (change)="filter()" type="checkbox" class="material-control-input" [(ngModel)]="isRoomCount2">
+        <span class="material-control-indicator"></span>
+        <span class="material-control-description">2</span>
+      </label>
+      <label class="custom-control material-checkbox checkInl">
+        <input (change)="filter()" type="checkbox" class="material-control-input" [(ngModel)]="isRoomCount3">
+        <span class="material-control-indicator"></span>
+        <span class="material-control-description">3</span>
+      </label>
+      <label class="custom-control material-checkbox checkInl">
+        <input (change)="filter()" type="checkbox" class="material-control-input" [(ngModel)]="isRoomCount4">
+        <span class="material-control-indicator"></span>
+        <span class="material-control-description">4+</span>
+      </label>
+    </div>
+  </div>
+</div>

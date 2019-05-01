@@ -1,0 +1,76 @@
+<div class="container">
+  <div class="title">
+    {{apartment?.title}}
+  </div>
+  <div *ngIf="isEdit" class="deleteBth">
+    <button (click)="deleteApart()" type="button" class="btn btn-outline-dark">Удалить</button>
+  </div>
+  <div *ngIf="isEdit" class="redactBth">
+    <button routerLink="/updateApart/{{type}}/{{apartment.id}}" type="button" class="btn btn-outline-primary">Редактировать</button>
+  </div>
+  <div class="visitors">
+    <span>{{apartment?.visitorsCount+' просмотров за все время'}}</span>
+  </div>
+
+  <div class="wrapper">
+    <carousel>
+      <slide>
+        <img src="assets/aps1.1.jpg" alt="first slide" style="display: block; height: 400px; width: 100%;">
+      </slide>
+      <slide>
+        <img src="assets/aps1.2.jpg" alt="second slide" style="display: block; height: 400px; width: 100%;">
+      </slide>
+    </carousel>
+  </div>
+
+  <div class="info">
+    <div class="price">
+      {{apartment?.price+'$/мес'}}
+    </div>
+    <br>
+    <div class="address">
+      {{apartment?.address.town+', '}}
+      {{apartment?.address.street+', '}}
+      {{apartment?.address.house}}
+    </div>
+    <br>
+    <div class="contact">
+      {{apartment?.user.phone}}
+    </div>
+    <br>
+    <div class="email">
+        <button  (click)="sendMessage()" type="button" class="btn btn-outline-danger">Написать владельцу</button>
+    </div>
+  </div>
+
+  <div>
+    <h3>Описание</h3>
+    {{apartment?.description}}
+  </div>
+
+  <div class="moreInfo">
+    <h3>Информация об объекте</h3>
+    <table class="table">
+      <tbody>
+      <tr>
+        <th>Этаж / этажность</th>
+        <td>{{apartment?.floor}} / {{apartment?.maxFloor}}</td>
+      </tr>
+      <tr>
+        <th>Комнат</th>
+        <td>{{apartment?.roomCount}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="map">
+    <h3>Квартира на карте</h3>
+    <app-maps [markers]="markers"></app-maps>
+  </div>
+  <div class="aa">
+    {{apartment?.address.town+', '}}
+    {{apartment?.address.street+', '}}
+    {{apartment?.address.house}}
+  </div>
+</div>

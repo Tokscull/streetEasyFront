@@ -1,0 +1,100 @@
+.container {
+  margin-top: 93px;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.PriceFilter {
+  margin-bottom: 1px;
+}
+
+.RoomFilter {
+width: 30%;
+}
+
+
+::ng-deep {
+  .PriceFilter .ng5-slider .ng5-slider-bar {
+    background: #ffe4d1;
+    height: 2px;
+  }
+
+  .PriceFilter .ng5-slider .ng5-slider-selection {
+    background: orange;
+  }
+
+  .PriceFilter .ng5-slider .ng5-slider-pointer {
+    width: 8px;
+    height: 16px;
+    top: auto; /* to remove the default positioning */
+    bottom: 0;
+    background-color: #333;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+  }
+
+  .PriceFilter .ng5-slider .ng5-slider-pointer:after {
+    display: none;
+  }
+
+  .PriceFilter .ng5-slider .ng5-slider-bubble {
+    bottom: 14px;
+  }
+
+  .PriceFilter .ng5-slider .ng5-slider-limit {
+    font-weight: bold;
+    color: orange;
+  }
+
+  .PriceFilter .ng5-slider .ng5-slider-tick {
+    width: 1px;
+    height: 10px;
+    margin-left: 4px;
+    border-radius: 0;
+    background: #ffe4d1;
+    top: -1px;
+  }
+
+  .PriceFilter .ng5-slider .ng5-slider-tick.ng5-slider-selected {
+    background: orange;
+  }
+}
+
+.custom-control{
+
+  &.material-checkbox{
+    --color: #26a69a;
+
+    .material-control-input{
+      display: none;
+      &:checked~.material-control-indicator{
+        border-color: var(--color);
+        transform: rotateZ(45deg) translate(1px, -5px);
+        width: 10px;
+        border-top: 0px solid #fff;
+        border-left: 0px solid #fff;
+      }
+    }
+    .material-control-indicator{
+      display: inline-block;
+      position: absolute;
+      top: 4px;
+      left: 0;
+      width: 16px;
+      height: 16px;
+      border: 2px solid darkorange;
+      transition: .3s;
+    }
+    span {
+      color: orange;
+    }
+  }
+}
+
+.checkInl{
+  display: inline-block;
+  width: 25%;
+}
+

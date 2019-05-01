@@ -14,12 +14,12 @@
 
   <div class="details">
     <div class="title">
-      <a href="#">{{apartment.title}}</a>
+      <a routerLink="/apart/{{type}}/{{apartment.id}}">{{apartment.title}}</a>
     </div>
     <div class="info">
       <div  class="infoRow location">
-        <img *ngIf="apartment.area" src="assets/location.png" alt="location icon">
-        <span>{{apartment.area}}</span>
+        <img *ngIf="apartment.address.area" src="assets/location.png" alt="location icon">
+        <span>{{apartment.address.area}}</span>
       </div>
       <div *ngIf="apartment.visitorsCount" class="infoRow visitors">
         <img src="assets/visitors.png" alt="visitors icon">
@@ -42,7 +42,6 @@
       {{apartment.floor}} этаж ({{apartment.maxFloor}} этажей)
     </div>
   </div>
-
 
   <hr>
 </div>

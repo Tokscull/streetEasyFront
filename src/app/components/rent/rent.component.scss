@@ -12,11 +12,20 @@
   width: 50%;
   height: 650px;
   overflow-y: scroll;
+  z-index: 1;
 }
 
 .map {
   position: relative;
   float: right;
   width: 50%;
+  z-index: 1;
 }
 
+.filtr{
+  position: absolute;
+  margin-top: -93px;
+  margin-left: 50%;
+  width: 46%;
+  z-index: 2;
+}

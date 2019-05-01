@@ -1,13 +1,16 @@
 <div class="container rent">
 
   <div class="apsList">
-   <app-apartments></app-apartments>
+   <app-apartments [apartments]="apartments" [type]="'rent'"></app-apartments>
   </div>
 
   <div class="map">
-    <app-maps></app-maps>
+    <app-maps [markers]="markers"></app-maps>
   </div>
 
+  <div class="filtr">
+    <app-filtr [minValue]="50" [maxValue]="2000" (apartmentsChange)="onApartmentsChange($event)"></app-filtr>
+  </div>
 </div>
 
 

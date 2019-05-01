@@ -1,13 +1,18 @@
-<div class="container">
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
+<div class="container sale">
 
-  <p>
-    sale works!
-  </p>
+  <div class="apsList">
+    <app-apartments [apartments]="apartments" [type]="'sale'"></app-apartments>
+  </div>
+
+  <div class="map">
+    <app-maps [markers]="markers"></app-maps>
+  </div>
+
+  <div class="filtr">
+    <app-filtr [minValue]="10000" [maxValue]="500000" (apartmentsChange)="onApartmentsChange($event)"></app-filtr>
+  </div>
 </div>
+
+
+
 

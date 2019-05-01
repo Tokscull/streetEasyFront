@@ -1,0 +1,74 @@
+.container {
+  margin-top: 93px;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+.title {
+  display: inline-block;
+  font-size: 1.875rem;
+  font-weight: 400;
+  width: 78%;
+}
+
+.redactBth{
+  display: inline-block;
+  width: 11%;;
+}
+
+.deleteBth{
+  display: inline-block;
+  width: 11%;
+}
+
+.visitors {
+  font-size: .6875rem;
+  vertical-align: middle;
+}
+
+.wrapper {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  width: 60%;
+  display: inline-block;
+  vertical-align:top;
+
+}
+
+.info {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  padding-left: 50px;
+  font-weight: 400;
+  font-size: 28px;
+  width: 40%;
+  display: inline-block;
+  vertical-align:top;
+}
+
+.address {
+  font-size: 18px;
+}
+
+.contact {
+  font-size: 18px;
+}
+
+.email {
+  font-size: 18px;
+}
+
+.moreInfo {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  width: 60%;
+}
+
+.map {
+}
+
+.aa {
+  padding-top: 10px;
+  padding-bottom: 30px;
+}

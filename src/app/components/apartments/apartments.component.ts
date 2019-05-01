@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import {Apartament} from '../../models/Apartament';
-import {HttpService} from '../../services/http/http.service';
+import {Component, Input, OnInit} from '@angular/core';
+import {Apartment} from '../../models/Apartment';
 
 @Component({
   selector: 'app-apartments',
@@ -9,18 +8,11 @@ import {HttpService} from '../../services/http/http.service';
 })
 export class ApartmentsComponent implements OnInit {
 
-  apartments: Apartament[];
+  @Input() apartments: Apartment[];
+  @Input() type: string;
 
-  constructor(private httpService: HttpService) { }
+  constructor() { }
 
   ngOnInit() {
-    this.httpService.getAllApartments()
-      .subscribe(value => {
-          this.apartments = value;
-        },
-        error => {
-          console.log(error);
-        });
   }
-
 }
